@@ -21,7 +21,7 @@
     },
     "requirements": {
       "applet": {
-        "zone": "string"
+        "symbol": "string"
       }
     }
   },
