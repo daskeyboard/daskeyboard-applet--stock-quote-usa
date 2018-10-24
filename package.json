@@ -1,31 +1,31 @@
 {
-  "name": "q-extension-montastic",
-  "displayName": "Create alerts from Montastic",
-  "publisher": "Metadot Corporation",
+  "name": "q-applet-stock-quote",
   "version": "1.0.0",
-  "description": "Checks the Montastic service for alerts, sends a signal if one is found.",
-  "icon": "assets/icon.png",
+  "description": "Das Keyboard applet to provide stock quote signals.",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "author": "Cory Kim",
   "license": "MIT",
-  "scripts": {
-    "start": "node .",
-    "watch": "nodemon ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/corykim/q-extension-montastic.git"
-  },
   "dependencies": {
-    "qbuzz": "^2.1.0",
-    "request-promise": "^4.2.2"
+    "daskeyboard-applet": "~2.4.3"
   },
   "qConfig": {
-    "defaults": {
-      "authorization": {
-        "apiKey": "<required-key>"
-      },
-      "monitors": []
+    "geometry": {
+      "width": 1,
+      "height": 1
+    },
+    "applet": {
+      "defaults": {}
+    },
+    "requirements": {
+      "applet": {
+        "zone": "string"
+      }
     }
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
