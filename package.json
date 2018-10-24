@@ -1,0 +1,31 @@
+{
+  "name": "q-extension-montastic",
+  "displayName": "Create alerts from Montastic",
+  "publisher": "Metadot Corporation",
+  "version": "1.0.0",
+  "description": "Checks the Montastic service for alerts, sends a signal if one is found.",
+  "icon": "assets/icon.png",
+  "main": "index.js",
+  "author": "Cory Kim",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corykim/q-extension-montastic.git"
+  },
+  "dependencies": {
+    "qbuzz": "^2.1.0",
+    "request-promise": "^4.2.2"
+  },
+  "qConfig": {
+    "defaults": {
+      "authorization": {
+        "apiKey": "<required-key>"
+      },
+      "monitors": []
+    }
+  }
+}
