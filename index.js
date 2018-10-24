@@ -1,77 +1,51 @@
-const q = require('qbuzz');
+const q = require('daskeyboard-applet');
 const request = require('request-promise');
 
-const config = q.Config();
-console.log("My config", JSON.stringify(config));
+const apiUrl = 'https://api.iextrading.com/1.0';
 
-const serviceUrl = 'https://www.montastic.com/checkpoints/index';
-
-const serviceHeaders = {
-  "Content-Type": "application/json",
-  "X-API-KEY": config.authorization.apiKey,
-}
-
-const responseColors = {
-  "0": '#FFFF00',
-  "1": '#00FF00',
-  "-1": '#FF0000'
-}
-
-const responseEffects = {
-  "0": q.Effects.BOUNCING_LIGHT,
-  "1": q.Effects.SET_COLOR,
-  "-1": q.Effects.BLINK
+async function getQuote(symbol) {
+  return request.get({
+    url: apiUrl + `/stock/${symbol}/quote`,
+    json: true
+  });
 }
 
 
-class QMontastic extends q.DesktopApp {
-  constructor() {
-    super();
-  }
 
-  /** ping Montastic and set the signal  */
+class StockQuote extends q.DesktopApp {
   async run() {
-    return request.get({
-        url: serviceUrl,
-        headers: serviceHeaders,
-        json: true
-      }).then(function (body) {
-        let points = null;
-        if (config.monitors) {
-          points = new Array(config.monitors.length);
-        } else {
-          points = [];
-        }
+    console.log("Running.");
+    const symbol = this.config.symbol;
+    if (symbol) {
+      console.log("My symbol is: " + symbol);
+      return getQuote(symbol).then(quote => {
+        const symbol = quote.symbol;
+        const openPrice = quote.open;
+        const latestPrice = quote.latestPrice;
 
-        for (let monitor of body) {
-          // extract the important values from the response
-          let status = monitor.status;
-          let monitorId = monitor.id;
-
-          console.log(`For monitor ${monitorId}, got status: ${status}`);
-
-          let point = new q.Point(responseColors[status], 
-            responseEffects[status]);
-          if (config.monitors) {
-            let i = config.monitors.indexOf(monitorId);
-            if (i >= 0) {
-              points[i] = point;
-            }
-          } else {
-            points.push(point);
-          }
-        }
-
-        let signal = new q.Signal(config.extensionId, [points]);
-        console.log("Sending signal: ", signal);
-        q.Send(signal);
+        const color = (latestPrice >= openPrice) ? '#00FF00' : '#FF0000';
+        return new q.Signal({
+          points: [
+            [new q.Point(color)]
+          ],
+          name: 'Stock Quote',
+          message: `${symbol}: ${latestPrice} (${openPrice})`
+        });
+      }).catch((error) => {
+        console.error("Error while getting stock quote:", error);
+        return null;
       })
-      .catch(function (error) {
-        console.error("Got error sending request to service:", error);
-      });
+    } else {
+      console.log("No symbol configured.");
+      return null;
+    }
   }
 }
 
 
-const montastic = new QMontastic();
-montastic.start();
+module.exports = {
+  getQuote: getQuote,
+  StockQuote: StockQuote
+}
+
+const applet = new StockQuote();
