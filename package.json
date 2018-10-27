@@ -1,15 +1,31 @@
 {
   "name": "q-applet-stock-quote",
+  "displayName": "Stock Quote Applet",
   "version": "1.0.0",
-  "description": "Das Keyboard applet to provide stock quote signals.",
+  "shortDescription": "Watch LEDs changing to red or green based on stock value fluctuation",
+  "longDescription": "Monitor your favorite stock ticker and stay on top of the stock market.",
+  "officialProduct": "",
+  "version": "1.0",
+  "appUrl": "",
+  "isSingleton": false,
+  "videoUrl": "",
+  "icon": "icon.png",
+  "image": "bigimage.png",
+  "authorName": "Das Keyboard team",
+  "authorUrl": "https://twitter.com/daskeyboard",
+  "issuesUrl": "https://twitter.com/daskeyboard",
+  "reporsitoryUrl": "https://github.com/metadot/q-applet-stock-quote",
+  "licenseUrl": "",
+  "changelogUrl": "",
+  "qActionUrl": "",
+  
+  "dependencies": {
+    "daskeyboard-applet": "~2.4.3"
+  },
+  
   "main": "index.js",
   "scripts": {
     "test": "mocha"
-  },
-  "author": "Cory Kim",
-  "license": "MIT",
-  "dependencies": {
-    "daskeyboard-applet": "~2.4.3"
   },
   "qConfig": {
     "geometry": {
