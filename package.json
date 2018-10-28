@@ -17,11 +17,9 @@
   "licenseUrl": "",
   "changelogUrl": "",
   "qActionUrl": "",
-  
   "dependencies": {
     "daskeyboard-applet": "~2.4.3"
   },
-  
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -34,6 +32,16 @@
     "applet": {
       "defaults": {}
     },
+    "questions": [
+      {
+        "key": "symbol",
+        "label": "Enter stock ticker",
+        "help": "You can find the stock ticker on the web",
+        "required": true,
+        "order": 1,
+        "controlType": "textbox"
+      }
+    ],
     "requirements": {
       "applet": {
         "symbol": "string"
