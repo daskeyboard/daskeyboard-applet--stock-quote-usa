@@ -1,7 +1,6 @@
 # Q Applet: Stock Quote
 
-This applet displays stock quote variations by changing the color of
-designated keys to green (up) or red (down) on a Das Keyboard Q Series.
+Displays stock quote variations on a Das Keyboard Q Series.
 
 [GitHub repository](https://github.com/daskeyboard/q-applet-stock-quote)
 
