@@ -26,6 +26,26 @@ describe('StockQuote', () => {
     }
   };
 
+  describe('#applyConfig()', () => {
+    it('can apply a valid config', () => {
+      app.applyConfig().catch((error) => {
+        fail(error);
+      })
+    });
+    it('can detect an invalid config', () => {
+      let failApp = new t.StockQuote();
+      app.config = {
+        symbol: 'FOOBARRR'
+      }
+      app.applyConfig().then(() => {
+        fail("Should have failed.");
+      }).catch((error) => {
+        assert(error);
+      })
+      
+    })
+  });
+
   describe('#run()', () => {
     app.run().then((signal) => {
       console.log(signal);

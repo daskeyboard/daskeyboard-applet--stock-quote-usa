@@ -18,7 +18,7 @@
   "changelogUrl": "",
   "qActionUrl": "",
   "dependencies": {
-    "daskeyboard-applet": "~2.4.3"
+    "daskeyboard-applet": "~2.5.0"
   },
   "main": "index.js",
   "scripts": {

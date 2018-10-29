@@ -41,6 +41,17 @@ class StockQuote extends q.DesktopApp {
       return null;
     }
   }
+
+  async applyConfig() {
+    const symbol = this.config.symbol;
+    if (symbol) {
+      return getQuote(symbol).then((response) => {
+        return true;
+      }).catch((error) => {
+        throw new Error("Error validating symbol", error);
+      })
+    }
+  }
 }
 
 
