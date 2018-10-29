@@ -20,6 +20,7 @@ class StockQuote extends q.DesktopApp {
       console.log("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
         const symbol = quote.symbol;
+        const companyName = quote.companyName;
         const openPrice = quote.open;
         const latestPrice = quote.latestPrice;
 
@@ -29,7 +30,7 @@ class StockQuote extends q.DesktopApp {
             [new q.Point(color)]
           ],
           name: 'Stock Quote',
-          message: `${symbol}: ${latestPrice} (${openPrice})`
+          message: `${symbol} (${companyName}): ${latestPrice} (${openPrice})`
         });
       }).catch((error) => {
         console.error("Error while getting stock quote:", error);

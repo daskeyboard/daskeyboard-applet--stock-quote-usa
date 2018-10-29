@@ -1,6 +1,7 @@
 const assert = require('assert');
 const t = require('../index');
 const symbol = 'AAPL';
+const companyName = 'Apple Inc.';
 
 describe('getQuote', function () {
   it('can get a quote', function () {
@@ -30,6 +31,7 @@ describe('StockQuote', () => {
       console.log(signal);
       assert.ok(signal);
       assert(signal.message.includes(symbol));
+      assert(signal.message.includes(companyName));
     }).catch((error) => {
       assert.fail(error)
     });
