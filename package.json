@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Watch LEDs changing to red or green based on stock value fluctuation",
   "longDescription": "Monitor your favorite stock ticker and stay on top of the stock market.",
-  "officialProduct": "",
+  "officialProductName": "",
   "appUrl": "",
   "isSingleton": false,
   "videoUrl": "",
