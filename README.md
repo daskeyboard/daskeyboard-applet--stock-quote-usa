@@ -4,6 +4,14 @@ Displays stock quote variations on a Das Keyboard Q Series.
 
 [GitHub repository](https://github.com/daskeyboard/q-applet-stock-quote)
 
+## Example
+
+Displays stock quote changes on a Das Keyboard Q Series.
+Keys are assigned either a green or a red color depending on the stock 
+trading higher or lower than the previous day's close
+
+![Stock quote on a Das Keybaord Q](./assets/q-applet-stock-quote-image.png "Q Stock quote")
+
 ## Changelog
 
 [CHANGELOG.MD](CHANGELOG.md)
