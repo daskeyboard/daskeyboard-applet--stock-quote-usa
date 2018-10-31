@@ -1,7 +1,29 @@
-# q-applet-stock-quote
+# Q Applet: Stock Quote
 
-Das Keyboard applet to provide stock quote signals.
+Displays stock quote variations on a Das Keyboard Q Series.
 
+[GitHub repository](https://github.com/daskeyboard/q-applet-stock-quote)
+
+## Example
+
+Displays stock quote changes on a Das Keyboard Q Series.
+Keys are assigned either a green or a red color depending on the stock 
+trading higher or lower than the previous day's close
+
+![Stock quote on a Das Keybaord Q](./assets/q-applet-stock-quote-image.png "Q Stock quote")
+
+## Changelog
+
+[CHANGELOG.MD](CHANGELOG.md)
+
+## Installation
+
+Requires a Das Keyboard Q Series: www.daskeyboard.com/5q
+
+Installation, configuration and uninstallation of applets is done within
+the Q Desktop application (https://www.daskeyboard.io/get-started/software/)
+
+## Docs & Contribute
 
 ## Copyright / License
 
