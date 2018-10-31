@@ -1,5 +1,6 @@
 const q = require('daskeyboard-applet');
 const request = require('request-promise');
+const logger = q.logger;
 
 const apiUrl = 'https://api.iextrading.com/1.0';
 
@@ -14,10 +15,10 @@ async function getQuote(symbol) {
 
 class StockQuote extends q.DesktopApp {
   async run() {
-    console.log("Running.");
-    const symbol = this.config.symbol;
+    logger.info("Running.");
+    const symbol = this.config.symbol.trim();
     if (symbol) {
-      console.log("My symbol is: " + symbol);
+      logger.info("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
         const symbol = quote.symbol;
         const companyName = quote.companyName;
@@ -33,11 +34,11 @@ class StockQuote extends q.DesktopApp {
           message: `${symbol} (${companyName}): ${latestPrice} (${openPrice})`
         });
       }).catch((error) => {
-        console.error("Error while getting stock quote:", error);
+        logger.error("Error while getting stock quote:" + error);
         return null;
       })
     } else {
-      console.log("No symbol configured.");
+      logger.info("No symbol configured.");
       return null;
     }
   }
