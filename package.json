@@ -20,7 +20,7 @@
   "changelogUrl": "",
   "qActionUrl": "",
   "dependencies": {
-    "daskeyboard-applet": "/home/cory/Workspaces/metadot/npm-qbuzz"
+    "daskeyboard-applet": "^2.7.9"
   },
   "main": "index.js",
   "scripts": {
