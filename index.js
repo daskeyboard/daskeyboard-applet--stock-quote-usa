@@ -6,7 +6,7 @@ const apiUrl = 'https://api.iextrading.com/1.0';
 
 async function getQuote(symbol) {
   return request.get({
-    url: apiUrl + `/stock/${symbol}/quote`,
+    url: apiUrl + `/stock/${symbol.trim().toUpperCase()}/quote`,
     json: true
   });
 }
@@ -16,7 +16,7 @@ async function getQuote(symbol) {
 class StockQuote extends q.DesktopApp {
   async run() {
     logger.info("Running.");
-    const symbol = this.config.symbol.trim().toUpperCase();
+    const symbol = this.config.symbol;
     if (symbol) {
       logger.info("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
@@ -44,7 +44,7 @@ class StockQuote extends q.DesktopApp {
   }
 
   async applyConfig() {
-    const symbol = this.config.symbol.trim().toUpperCase();
+    const symbol = this.config.symbol;
     if (symbol) {
       return getQuote(symbol).then((response) => {
         return true;
