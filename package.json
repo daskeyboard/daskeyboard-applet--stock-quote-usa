@@ -1,7 +1,7 @@
 {
   "name": "q-applet-stock-quote",
   "displayName": "Q Stock Quote",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Watch LEDs changing to red or green based on stock value fluctuation",
   "longDescription": "Monitor your favorite stock ticker and stay on top of the stock market.",
   "officialProductName": "",
@@ -20,7 +20,7 @@
   "changelogUrl": "",
   "qActionUrl": "",
   "dependencies": {
-    "daskeyboard-applet": "^2.7.9"
+    "daskeyboard-applet": "^2.7.12"
   },
   "main": "index.js",
   "scripts": {

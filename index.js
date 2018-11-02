@@ -16,7 +16,7 @@ async function getQuote(symbol) {
 class StockQuote extends q.DesktopApp {
   async run() {
     logger.info("Running.");
-    const symbol = this.config.symbol.trim();
+    const symbol = this.config.symbol.trim().toUpperCase();
     if (symbol) {
       logger.info("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
@@ -44,12 +44,12 @@ class StockQuote extends q.DesktopApp {
   }
 
   async applyConfig() {
-    const symbol = this.config.symbol;
+    const symbol = this.config.symbol.trim().toUpperCase();
     if (symbol) {
       return getQuote(symbol).then((response) => {
         return true;
       }).catch((error) => {
-        throw new Error("Error validating symbol", error);
+        throw new Error("Error validating symbol: " + symbol, error);
       })
     }
   }
