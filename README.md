@@ -10,7 +10,7 @@ Displays stock quote changes on a Das Keyboard Q Series.
 Keys are assigned either a green or a red color depending on the stock 
 trading higher or lower than the previous day's close
 
-![Stock quote on a Das Keybaord Q](./assets/q-applet-stock-quote-image.png "Q Stock quote")
+![Stock quote on a Das Keybaord Q](https://raw.githubusercontent.com/daskeyboard/daskeyboard-applet--stock-quote/master/assets/q-applet-stock-quote-image.png "Q Stock quote")
 
 ## Changelog
 
