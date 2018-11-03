@@ -1,6 +1,6 @@
 # Stock Quote
 
-Displays stock quote variations compared to the previous day's close.
+Displays stock quote variations.
 
 ![Stock quote on a Das Keybaord Q](https://raw.githubusercontent.com/daskeyboard/daskeyboard-applet--stock-quote/master/assets/stock-quotes-enduser-image.jpg "Q Stock quote")
 
