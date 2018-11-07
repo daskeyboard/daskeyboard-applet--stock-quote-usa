@@ -1,7 +1,7 @@
 {
   "name": "q-applet-stock-quote",
   "displayName": "Stock Quote",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Changes the key colors based on stock price variation",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
   "officialProductName": "",
@@ -20,7 +20,7 @@
   "changelogUrl": "",
   "qActionUrl": "",
   "dependencies": {
-    "daskeyboard-applet": "^2.7.12"
+    "daskeyboard-applet": "^2.7.13"
   },
   "main": "index.js",
   "scripts": {
