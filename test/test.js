@@ -50,6 +50,7 @@ describe('StockQuote', () => {
     app.run().then((signal) => {
       console.log(signal);
       assert.ok(signal);
+      assert(signal.name.includes(symbol));
       assert(signal.message.includes(symbol));
       assert(signal.message.includes(companyName));
     }).catch((error) => {

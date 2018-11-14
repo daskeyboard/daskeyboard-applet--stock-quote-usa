@@ -30,7 +30,7 @@ class StockQuote extends q.DesktopApp {
           points: [
             [new q.Point(color)]
           ],
-          name: 'Stock Quote',
+          name: `Stock Quote: ${symbol}`,
           message: `${symbol} (${companyName}): ${latestPrice} (${openPrice})`
         });
       }).catch((error) => {
