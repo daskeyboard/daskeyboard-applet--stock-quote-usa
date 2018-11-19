@@ -11,7 +11,13 @@ async function getQuote(symbol) {
   });
 }
 
-
+function formatChange(number) {
+  if (number >= 0) {
+    return `+${number.toFixed(2)}`;
+  } else {
+    return `${number.toFixed(2)}`;
+  }
+}
 
 class StockQuote extends q.DesktopApp {
   async run() {
@@ -25,13 +31,16 @@ class StockQuote extends q.DesktopApp {
         const openPrice = quote.open;
         const latestPrice = quote.latestPrice;
 
+        const change = formatChange((latestPrice - openPrice));
+        const changePercent = formatChange((change / openPrice - 1));
+
         const color = (latestPrice >= openPrice) ? '#00FF00' : '#FF0000';
         return new q.Signal({
           points: [
             [new q.Point(color)]
           ],
           name: `Stock Quote: ${symbol}`,
-          message: `${symbol} (${companyName}): ${latestPrice} (${openPrice})`
+          message: `${symbol} (${companyName}): ${latestPrice} (${change} ${changePercent}%)`
         });
       }).catch((error) => {
         logger.error("Error while getting stock quote:" + error);
@@ -57,6 +66,7 @@ class StockQuote extends q.DesktopApp {
 
 
 module.exports = {
+  formatChange: formatChange,
   getQuote: getQuote,
   StockQuote: StockQuote
 }

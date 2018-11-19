@@ -16,45 +16,86 @@ describe('getQuote', function () {
   })
 });
 
-describe('StockQuote', () => {
-  let app = new t.StockQuote();
-  app.config = {
-    symbol: symbol,
-    geometry: {
-      width: 1,
-      height: 1,
-    }
-  };
+describe('formatChange', function () {
+  it('handles negative numbers', function () {
+    assert.equal('-1.50', t.formatChange(-1.5));
+    assert.equal('-1.00', t.formatChange(-1.0));
+    assert.equal('-1.00', t.formatChange(-1));
+  });
 
+  it('handles 0', function () {
+    assert.equal('+0.00', t.formatChange(0));
+    assert.equal('+0.00', t.formatChange(0.0000));
+  });
+
+  it('handles positive numbers', function () {
+    assert.equal('+1.49', t.formatChange(1.49));
+    assert.equal('+1.49', t.formatChange(1.4900032));
+  });
+});
+
+describe('StockQuote', () => {
   describe('#applyConfig()', () => {
     it('can apply a valid config', () => {
+      let app = new t.StockQuote();
+      app.config = {
+        symbol: symbol,
+        geometry: {
+          width: 1,
+          height: 1,
+        }
+      };
       app.applyConfig().catch((error) => {
         fail(error);
       })
     });
     it('can detect an invalid config', () => {
       let failApp = new t.StockQuote();
-      app.config = {
+      failApp.config = {
         symbol: 'FOOBARRR'
       }
-      app.applyConfig().then(() => {
+      failApp.applyConfig().then(() => {
         fail("Should have failed.");
       }).catch((error) => {
         assert(error);
       })
-      
+
     })
   });
 
   describe('#run()', () => {
-    app.run().then((signal) => {
-      console.log(signal);
-      assert.ok(signal);
-      assert(signal.name.includes(symbol));
-      assert(signal.message.includes(symbol));
-      assert(signal.message.includes(companyName));
-    }).catch((error) => {
-      assert.fail(error)
+    it('can run', async function () {
+      return buildApp().then(app => {
+        return app.run().then((signal) => {
+          console.log(signal);
+          assert.ok(signal);
+          assert(signal.name.includes(symbol));
+          assert(signal.message.includes(symbol));
+          assert(signal.message.includes(companyName));
+        }).catch((error) => {
+          assert.fail(error)
+        });
+      });
     });
-  })
+  });
 })
+
+const baseConfig = {
+  extensionId: 'q-applet-stock-quote',
+  geometry: {
+    width: 1,
+    height: 1,
+  },
+  applet: {
+    user: {
+      symbol: symbol
+    }
+  }
+};
+
+async function buildApp(config) {
+  const app = new t.StockQuote();
+  return app.processConfig(config || baseConfig).then(() => {
+    return app;
+  });
+}
