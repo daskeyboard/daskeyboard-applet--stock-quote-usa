@@ -20,28 +20,32 @@ function formatChange(number) {
 }
 
 class StockQuote extends q.DesktopApp {
+  generateSignal(quote) {
+    const symbol = quote.symbol;
+    const companyName = quote.companyName;
+    const previousClose = quote.previousClose;
+    const latestPrice = quote.latestPrice;
+
+    const change = formatChange((latestPrice - previousClose));
+    const changePercent = formatChange((change / previousClose - 1));
+
+    const color = (latestPrice >= previousClose) ? '#00FF00' : '#FF0000';
+    return new q.Signal({
+      points: [
+        [new q.Point(color)]
+      ],
+      name: `Stock Quote: ${symbol}`,
+      message: `${symbol} (${companyName}): ${latestPrice} (${change} ${changePercent}%)`
+    });
+  }
+
   async run() {
     logger.info("Running.");
     const symbol = this.config.symbol;
     if (symbol) {
       logger.info("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
-        const symbol = quote.symbol;
-        const companyName = quote.companyName;
-        const openPrice = quote.open;
-        const latestPrice = quote.latestPrice;
-
-        const change = formatChange((latestPrice - openPrice));
-        const changePercent = formatChange((change / openPrice - 1));
-
-        const color = (latestPrice >= openPrice) ? '#00FF00' : '#FF0000';
-        return new q.Signal({
-          points: [
-            [new q.Point(color)]
-          ],
-          name: `Stock Quote: ${symbol}`,
-          message: `${symbol} (${companyName}): ${latestPrice} (${change} ${changePercent}%)`
-        });
+        return this.generateSignal(quote);
       }).catch((error) => {
         logger.error("Error while getting stock quote:" + error);
         return null;

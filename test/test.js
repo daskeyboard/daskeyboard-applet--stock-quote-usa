@@ -63,11 +63,21 @@ describe('StockQuote', () => {
     })
   });
 
+  describe('#generateSignal(quote)', function () {
+    it('generates the quote', function () {
+      return buildApp().then(app => {
+        const quote = require('./test-quote.json');
+        const signal = app.generateSignal(quote);
+        assert.ok(signal);
+        assert(signal.message.includes('3.36')); // latestPrice - previousClose
+      })
+    })
+  });
+
   describe('#run()', () => {
     it('can run', async function () {
       return buildApp().then(app => {
         return app.run().then((signal) => {
-          console.log(signal);
           assert.ok(signal);
           assert(signal.name.includes(symbol));
           assert(signal.message.includes(symbol));
