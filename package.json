@@ -1,12 +1,13 @@
 {
-  "name": "q-applet-stock-quote",
+  "name": "daskeyboard-applet--stock-quote",
   "displayName": "Stock Quote",
   "version": "1.0.5",
   "description": "Changes the key colors based on stock price variation",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
-  "officialProductName": "",
+  "officialProductName": "Stock quote",
   "appUrl": "",
   "publisherName": "Das Keyboard",
+  "publisher": "Das Keyboard",
   "isSingleton": false,
   "videoUrl": "",
   "icon": "assets/icon.png",
@@ -14,13 +15,19 @@
   "authorName": "Das Keyboard team",
   "authorUrl": "https://twitter.com/daskeyboard",
   "issuesUrl": "https://github.com/daskeyboard/q-applet-stock-quote/issues",
-  "homepage": "https://github.com/daskeyboard/q-applet-stock-quote",
+  "homePageUrl": "https://github.com/daskeyboard/q-applet-stock-quote",
   "developerRepoUrl": "https://github.com/daskeyboard/q-applet-stock-quote",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
-  "changelogUrl": "",
+  "changelogUrl": "https://github.com/daskeyboard/daskeyboard-applet--stock-quote/blob/master/CHANGELOG.md",
+  "license": "MIT",
   "qActionUrl": "",
+  "readMeUrl": "README.md",
+  "readMeEndUserUrl": "READMEENDUSER.md",
   "dependencies": {
     "daskeyboard-applet": "^2.7.13"
+  },
+  "engines": {
+    "das-keyboard-q": "3.1.x"
   },
   "main": "index.js",
   "scripts": {
