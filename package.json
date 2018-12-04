@@ -22,7 +22,7 @@
   "license": "MIT",
   "qActionUrl": "",
   "readMeUrl": "README.md",
-  "readMeEndUserUrl": "READMEENDUSER.md",
+  "readMeEndUserUrl": "README_ENDUSER.md",
   "dependencies": {
     "daskeyboard-applet": "^2.7.13"
   },
