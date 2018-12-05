@@ -1,4 +1,4 @@
-# Stock Quote
+# Stock Quote - USA
 
 Displays stock quote variations.
 

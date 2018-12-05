@@ -1,4 +1,4 @@
-# Q Applet: Stock Quote
+# Q Applet: Stock Quote - USA
 
 Displays stock quote changes on a Das Keyboard Q Series.
 Keys are assigned either a green or a red color depending on the stock
