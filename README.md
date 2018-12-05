@@ -8,7 +8,7 @@ trading higher or lower than the previous day's close
 
 ## Example
 
-![Stock quote on a Das Keybaord Q](assets/image.png "Q Stock quote")
+![Stock quote - USA on a Das Keybaord Q](assets/image.png "Q Stock quote - USA")
 
 ## Changelog
 
@@ -21,7 +21,13 @@ Requires a Das Keyboard Q Series: www.daskeyboard.com
 Installation, configuration and uninstallation of applets is done within
 the Q Desktop application (https://www.daskeyboard.com/q)
 
-## Docs & Contribute
+## Running tests
+
+   yarn test
+
+## Contributions
+
+Pull requests welcome.
 
 ## Copyright / License
 
