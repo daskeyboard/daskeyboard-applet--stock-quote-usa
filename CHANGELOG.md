@@ -4,7 +4,7 @@
 
 First release
 
-## Version 1.0.6 - December 05, 2018
+## Version 1.0.5 - December 05, 2018
 
-New images and new titles added.
+New images and new titles added (Stock Quote becom Stock Quote USA).
 README and Package.json updated.
