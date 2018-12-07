@@ -30,10 +30,15 @@ class StockQuote extends q.DesktopApp {
     const changePercent = formatChange((change / previousClose - 1));
 
     const color = (latestPrice >= previousClose) ? '#00FF00' : '#FF0000';
+    
     return new q.Signal({
       points: [
         [new q.Point(color)]
       ],
+      link: {
+        url: 'https://www.google.com/search?q='+`${symbol}`,
+        label: 'Show in browser',
+      },
       name: `Stock Quote: ${symbol}`,
       message: `${symbol} (${companyName}): ${latestPrice} (${change} ${changePercent}%)`
     });
