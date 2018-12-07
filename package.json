@@ -1,6 +1,6 @@
 {
-  "name": "daskeyboard-applet--stock-quote",
-  "displayName": "Stock Quote",
+  "name": "daskeyboard-applet--stock-quote-usa",
+  "displayName": "Stock Quote USA",
   "version": "1.0.5",
   "description": "Changes the key colors based on stock price variation",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
@@ -23,7 +23,7 @@
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "README_ENDUSER.md",
   "dependencies": {
-    "daskeyboard-applet": "^2.7.13"
+    "daskeyboard-applet": "^2.10.4"
   },
   "engines": {
     "das-keyboard-q": "3.0.0"
