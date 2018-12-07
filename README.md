@@ -1,4 +1,4 @@
-# Q Applet: Stock Quote
+# Q Applet: Stock Quote - USA
 
 Displays stock quote changes on a Das Keyboard Q Series.
 Keys are assigned either a green or a red color depending on the stock
@@ -8,7 +8,7 @@ trading higher or lower than the previous day's close
 
 ## Example
 
-![Stock quote on a Das Keybaord Q](assets/image.png "Q Stock quote")
+![Stock quote - USA on a Das Keybaord Q](assets/image.png "Q Stock quote - USA")
 
 ## Changelog
 
@@ -16,12 +16,18 @@ trading higher or lower than the previous day's close
 
 ## Installation
 
-Requires a Das Keyboard Q Series: www.daskeyboard.com/5q
+Requires a Das Keyboard Q Series: www.daskeyboard.com
 
 Installation, configuration and uninstallation of applets is done within
-the Q Desktop application (https://www.daskeyboard.io/get-started/software/)
+the Q Desktop application (https://www.daskeyboard.com/q)
 
-## Docs & Contribute
+## Running tests
+
+    yarn test
+
+## Contributions
+
+Pull requests welcome.
 
 ## Copyright / License
 
