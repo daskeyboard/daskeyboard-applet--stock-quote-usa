@@ -20,7 +20,6 @@
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
   "changelogUrl": "https://github.com/daskeyboard/daskeyboard-applet--stock-quote/blob/master/CHANGELOG.md",
   "license": "MIT",
-  "qActionUrl": "",
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "README_ENDUSER.md",
   "dependencies": {
