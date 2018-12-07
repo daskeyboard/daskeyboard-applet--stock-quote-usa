@@ -68,8 +68,13 @@ describe('StockQuote', () => {
       return buildApp().then(app => {
         const quote = require('./test-quote.json');
         const signal = app.generateSignal(quote);
+        console.log(JSON.stringify(signal));
         assert.ok(signal);
-        assert(signal.message.includes('3.36')); // latestPrice - previousClose
+        assert(signal.message.includes('AAPL'));
+        assert(signal.message.includes('USD 181.94'));
+        assert(signal.message.includes('Previous close: USD 178.58'));
+        assert(signal.message.includes('+3.36')); // latestPrice - previousClose
+        assert(signal.message.includes('+1.88%'));
       })
     })
   });
