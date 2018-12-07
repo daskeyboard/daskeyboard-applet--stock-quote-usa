@@ -41,7 +41,7 @@ class StockQuote extends q.DesktopApp {
       name: `Stock Quote: ${symbol}`,
       message: `${symbol} (${companyName}): ` + 
         `USD ${latestPrice} (${change} ${changePercent}%)` +
-        `\nPrevious close: USD ${previousClose}`
+        `<br/>Previous close: USD ${previousClose}`
     });
   }
 
