@@ -27,9 +27,8 @@
     "daskeyboard-applet": "^2.7.13"
   },
   "engines": {
-    "das-keyboard-q": "3.1.x"
+    "das-keyboard-q": "3.0.0"
   },
-  "das-q-runner":"3.0.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
