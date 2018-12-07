@@ -11,11 +11,15 @@ async function getQuote(symbol) {
   });
 }
 
+function round(number) {
+  return number.toFixed(2);
+}
+
 function formatChange(number) {
   if (number >= 0) {
-    return `+${number.toFixed(2)}`;
+    return `+${round(number)}`;
   } else {
-    return `${number.toFixed(2)}`;
+    return `${round(number)}`;
   }
 }
 
@@ -23,11 +27,11 @@ class StockQuote extends q.DesktopApp {
   generateSignal(quote) {
     const symbol = quote.symbol;
     const companyName = quote.companyName;
-    const previousClose = quote.previousClose;
-    const latestPrice = quote.latestPrice;
+    const previousClose = quote.previousClose * 1;
+    const latestPrice = quote.latestPrice * 1;
 
     const change = formatChange((latestPrice - previousClose));
-    const changePercent = formatChange((change / previousClose - 1));
+    const changePercent = formatChange(change / previousClose * 100);
 
     const color = (latestPrice >= previousClose) ? '#00FF00' : '#FF0000';
     
@@ -40,7 +44,9 @@ class StockQuote extends q.DesktopApp {
         label: 'Show in browser',
       },
       name: `Stock Quote: ${symbol}`,
-      message: `${symbol} (${companyName}): ${latestPrice} (${change} ${changePercent}%)`
+      message: `${symbol} (${companyName}): ` + 
+        `USD ${latestPrice} (${change} ${changePercent}%)` +
+        `<br/>Previous close: USD ${previousClose}`
     });
   }
 
