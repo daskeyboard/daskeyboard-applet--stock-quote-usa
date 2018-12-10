@@ -47,7 +47,8 @@
         "help": "You can find the stock ticker on the web",
         "required": true,
         "order": 1,
-        "controlType": "textbox"
+        "controlType": "textbox",
+        "value": "AAPL"
       }
     ],
     "requirements": {
