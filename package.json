@@ -1,24 +1,24 @@
 {
   "name": "daskeyboard-applet--stock-quote-usa",
-  "displayName": "Stock Quote USA",
+  "displayName": "Stock Quote - USA",
   "version": "1.0.5",
   "description": "Changes the key colors based on stock price variation",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
-  "officialProductName": "Stock quote",
+  "officialProductName": "Stock quote - USA",
   "appUrl": "",
   "publisherName": "Das Keyboard",
   "publisher": "Das Keyboard",
   "isSingleton": false,
   "videoUrl": "",
   "icon": "assets/icon.png",
-  "image": "assets/q-applet-stock-quote-image.png",
+  "image": "assets/image-missing.png",
   "authorName": "Das Keyboard",
   "authorUrl": "https://twitter.com/daskeyboard",
   "issuesUrl": "https://github.com/daskeyboard/q-applet-stock-quote/issues",
   "homePageUrl": "https://github.com/daskeyboard/q-applet-stock-quote",
   "developerRepoUrl": "https://github.com/daskeyboard/q-applet-stock-quote",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
-  "changelogUrl": "https://github.com/daskeyboard/daskeyboard-applet--stock-quote/blob/master/CHANGELOG.md",
+  "changelogUrl": "CHANGELOG.md",
   "license": "MIT",
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "README_ENDUSER.md",
@@ -37,9 +37,6 @@
       "width": 1,
       "height": 1
     },
-    "applet": {
-      "defaults": {}
-    },
     "questions": [
       {
         "key": "symbol",
@@ -50,12 +47,7 @@
         "controlType": "textbox",
         "value": "AAPL"
       }
-    ],
-    "requirements": {
-      "applet": {
-        "symbol": "string"
-      }
-    }
+    ]
   },
   "devDependencies": {
     "mocha": "^5.2.0"
