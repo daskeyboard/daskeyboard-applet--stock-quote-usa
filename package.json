@@ -28,6 +28,9 @@
   "engines": {
     "das-keyboard-q": "3.0.0"
   },
+  "applet": {
+    "defaults": {}
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha"
