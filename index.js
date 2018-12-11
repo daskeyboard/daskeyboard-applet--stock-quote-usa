@@ -24,6 +24,13 @@ function formatChange(number) {
 }
 
 class StockQuote extends q.DesktopApp {
+
+  constructor() {
+    super();
+    // run every 5 min
+    this.pollingInterval = 5 * 60 * 1000;
+  }
+
   generateSignal(quote) {
     const symbol = quote.symbol;
     const companyName = quote.companyName;
