@@ -47,8 +47,8 @@ class StockQuote extends q.DesktopApp {
         [new q.Point(color)]
       ],
       link: {
-        url: 'https://www.google.com/search?q='+`${symbol}`,
-        label: 'Show in browser',
+        url: 'https://iextrading.com/apps/stocks/'+`${symbol}`,
+        label: 'Show in IEX',
       },
       name: `Stock Quote: ${symbol}`,
       message: `${symbol} (${companyName}): ` + 
