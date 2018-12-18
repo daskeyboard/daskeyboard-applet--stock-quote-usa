@@ -8,3 +8,7 @@ First release
 
 New images and new titles added (Stock Quote becom Stock Quote USA).
 README and Package.json updated.
+
+## Version 1.0.6 - December 18, 2018
+
+Link in popup message redirect to the linked API.
