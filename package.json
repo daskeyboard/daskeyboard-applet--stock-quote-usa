@@ -2,7 +2,7 @@
   "name": "daskeyboard-applet--stock-quote-usa",
   "displayName": "Stock Quote - USA",
   "version": "1.0.6",
-  "description": "Changes the key colors based on stock price variation",
+  "description": "Displays stock quote.",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
   "officialProductName": "Stock quote - USA",
   "appUrl": "",
