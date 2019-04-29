@@ -1,7 +1,7 @@
 {
   "name": "daskeyboard-applet--stock-quote-usa",
   "displayName": "Stock Quote - USA",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Displays stock quote.",
   "longDescription": "Monitor your favorite stock tickers and stay on top of the stock market.",
   "officialProductName": "Stock quote - USA",
@@ -23,7 +23,7 @@
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "README_ENDUSER.md",
   "dependencies": {
-    "daskeyboard-applet": "2.10.6"
+    "daskeyboard-applet": "^2.11.1"
   },
   "engines": {
     "das-keyboard-q": "3.0.0"
