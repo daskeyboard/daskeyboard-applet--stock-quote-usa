@@ -58,15 +58,20 @@ class StockQuote extends q.DesktopApp {
   }
 
   async run() {
-    logger.info("Running.");
+    logger.info("Stock quote USA running.");
     const symbol = this.config.symbol;
     if (symbol) {
       logger.info("My symbol is: " + symbol);
       return getQuote(symbol).then(quote => {
         return this.generateSignal(quote);
       }).catch((error) => {
-        logger.error("Error while getting stock quote:" + error);
-        return null;
+        logger.error("Error while getting stock quote USA:" + error);
+        if(`${error.message}`.includes("getaddrinfo")){
+          return q.Signal.error(
+            'The Stock Quote USA service returned an error. <b>Please check your internet connection</b>.'
+          );
+        }
+        return q.Signal.error([`The Stock Quote USA service returned an error. Detail: ${error}`]);
       })
     } else {
       logger.info("No symbol configured.");
