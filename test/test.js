@@ -5,7 +5,7 @@ const companyName = 'Apple Inc.';
 
 describe('getQuote', function () {
   it('can get a quote', function () {
-    t.getQuote(symbol).then((quote) => {
+    return t.getQuote(symbol).then((quote) => {
       assert.ok(quote, 'Quote was not truthy.');
       assert.equal(symbol, quote.symbol, 'Symbol does not match: ' + symbol);
       assert.ok(quote.open, 'quote.open was not truthy.');
