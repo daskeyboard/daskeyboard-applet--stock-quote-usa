@@ -67,11 +67,13 @@ class StockQuote extends q.DesktopApp {
       }).catch((error) => {
         logger.error("Error while getting stock quote USA:" + error);
         if(`${error.message}`.includes("getaddrinfo")){
-          return q.Signal.error(
-            'The Stock Quote USA service returned an error. <b>Please check your internet connection</b>.'
-          );
+          // Do not signal
+          // return q.Signal.error(
+          //   'The Stock Quote USA service returned an error. <b>Please check your internet connection</b>.'
+          // );
+        }else{
+          return q.Signal.error([`The Stock Quote USA service returned an error. Detail: ${error}`]);
         }
-        return q.Signal.error([`The Stock Quote USA service returned an error. Detail: ${error}`]);
       })
     } else {
       logger.info("No symbol configured.");
