@@ -1,5 +1,9 @@
 # Changelog Q Applet Stock Quote - USA
 
+## Version 1.0.8 - May 14, 2019
+
+Removed internet connection error.
+
 ## Version 1.0.7 - April 29, 2019
 
 Handled internet connection error.
