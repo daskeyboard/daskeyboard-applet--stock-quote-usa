@@ -2,11 +2,11 @@ const q = require('daskeyboard-applet');
 const request = require('request-promise');
 const logger = q.logger;
 
-const apiUrl = 'https://api.iextrading.com/1.0';
+const apiUrl = 'https://cloud.iexapis.com/v1';
 
 async function getQuote(symbol) {
   return request.get({
-    url: apiUrl + `/stock/${symbol.trim().toUpperCase()}/quote`,
+    url: apiUrl + `/stock/${symbol.trim().toUpperCase()}/quote?token=pk_998533ff36864bd3a75f4494a3c92bfa`,
     json: true
   });
 }
@@ -27,8 +27,8 @@ class StockQuote extends q.DesktopApp {
 
   constructor() {
     super();
-    // run every 5 min
-    this.pollingInterval = 5 * 60 * 1000;
+    // run every 10 min
+    this.pollingInterval = 10 * 60 * 1000;
   }
 
   generateSignal(quote) {
