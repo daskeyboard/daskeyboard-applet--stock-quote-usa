@@ -4,12 +4,6 @@ const logger = q.logger;
 
 const apiUrl = 'https://cloud.iexapis.com/v1';
 
-async function getQuote(symbol) {
-  return request.get({
-    url: apiUrl + `/stock/${symbol.trim().toUpperCase()}/quote?token=pk_998533ff36864bd3a75f4494a3c92bfa`,
-    json: true
-  });
-}
 
 function round(number) {
   return number.toFixed(2);
@@ -31,6 +25,13 @@ class StockQuote extends q.DesktopApp {
     this.pollingInterval = 10 * 60 * 1000;
   }
 
+  getQuote(symbol) {
+    return request.get({
+      url: apiUrl + `/stock/${symbol.trim().toUpperCase()}/quote?token=${this.token}`,
+      json: true
+    });
+  }
+
   generateSignal(quote) {
     const symbol = quote.symbol;
     const companyName = quote.companyName;
@@ -41,7 +42,7 @@ class StockQuote extends q.DesktopApp {
     const changePercent = formatChange(change / previousClose * 100);
 
     const color = (latestPrice >= previousClose) ? '#00FF00' : '#FF0000';
-    
+
     return new q.Signal({
       points: [
         [new q.Point(color)]
@@ -51,7 +52,7 @@ class StockQuote extends q.DesktopApp {
         label: 'Show in IEX',
       },
       name: `Stock Quote: ${symbol}`,
-      message: `${symbol} (${companyName}): ` + 
+      message: `${symbol} (${companyName}): ` +
         `USD ${latestPrice} (${change} ${changePercent}%)` +
         `<br/>Previous close: USD ${previousClose}`
     });
@@ -62,7 +63,7 @@ class StockQuote extends q.DesktopApp {
     const symbol = this.config.symbol;
     if (symbol) {
       logger.info("My symbol is: " + symbol);
-      return getQuote(symbol).then(quote => {
+      return this.getQuote(symbol).then(quote => {
         return this.generateSignal(quote);
       }).catch((error) => {
         logger.error("Error while getting stock quote USA:" + error);
@@ -74,7 +75,7 @@ class StockQuote extends q.DesktopApp {
         }else{
           return q.Signal.error([`The Stock Quote USA service returned an error. Detail: ${error}`]);
         }
-      })
+      });
     } else {
       logger.info("No symbol configured.");
       return null;
@@ -83,12 +84,20 @@ class StockQuote extends q.DesktopApp {
 
   async applyConfig() {
     const symbol = this.config.symbol;
+
+    var tokenRequest = await request.get({
+        url: `https://q.daskeyboard.com/api/1.0/misc/get_stock_quote_token`,
+        json: true
+      });
+
+    this.token = tokenRequest.value;
+
     if (symbol) {
-      return getQuote(symbol).then((response) => {
+      return this.getQuote(symbol).then((response) => {
         return true;
       }).catch((error) => {
         throw new Error("Error validating symbol: " + symbol, error);
-      })
+      });
     }
   }
 }
@@ -96,8 +105,7 @@ class StockQuote extends q.DesktopApp {
 
 module.exports = {
   formatChange: formatChange,
-  getQuote: getQuote,
   StockQuote: StockQuote
-}
+};
 
 const applet = new StockQuote();
