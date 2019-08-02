@@ -21,8 +21,8 @@ class StockQuote extends q.DesktopApp {
 
   constructor() {
     super();
-    // run every 10 min
-    this.pollingInterval = 10 * 60 * 1000;
+    // run every 30 min
+    this.pollingInterval = 30 * 60 * 1000;
   }
 
   getQuote(symbol) {
