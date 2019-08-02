@@ -1,3 +1,9 @@
+#### 1.0.11 (2019-08-02)
+
+##### Other Changes
+
+*  Changed polling interval to 30min instread of 10 min (bcf3b465)
+
 # Changelog Q Applet Stock Quote - USA
 
 ## Version 1.0.10 - Jun 20, 2019
